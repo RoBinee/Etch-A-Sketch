@@ -1,12 +1,12 @@
 const container = document.querySelector(".container");
-const input = document.querySelector(".input-range");
-const inputNum = document.querySelector(".input-number");
+const inputForSize = document.querySelector(".input-size");
+const sizeNum = document.querySelector(".size-num");
 
 window.addEventListener("DOMContentLoaded", generateDivs(16));
 
-input.addEventListener("change", (e)=>{
+inputForSize.addEventListener("change", (e)=>{
     const inputValue = parseInt(e.currentTarget.value);
-    inputNum.textContent = `${inputValue} × ${inputValue}`
+    sizeNum.textContent = `${inputValue} × ${inputValue}`
     generateDivs(inputValue)
 })
 
