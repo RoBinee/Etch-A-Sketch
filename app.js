@@ -1,23 +1,7 @@
 //Create a webpage with a 16x16 grid of square divs
 const container = document.querySelector(".container");
-let numOfDiv = 16;
 
-window.addEventListener("DOMContentLoaded", generateDivs(numOfDiv));
-
-
-const btn = document.querySelector("button");
-
-btn.addEventListener("click", ()=>{
-    const size = parseInt(prompt("Set the number of squares. Limit is 100"));
-    //stypeof size is a string
-
-    if(size >= 100 || !size){
-        alert("Wrong input! size limit is 100 and type limit is number")
-    }else{
-        //go to the generate function
-        generateDivs(size)
-    }
-})
+window.addEventListener("DOMContentLoaded", generateDivs(16));
 
 function generateDivs(num){
     container.innerHTML = ""
@@ -41,3 +25,10 @@ function generateDivs(num){
     })
 
 }
+
+const input = document.querySelector(".input-range");
+
+input.addEventListener("change", (e)=>{
+    const inputValue = parseInt(e.currentTarget.value);
+    generateDivs(inputValue)
+})
