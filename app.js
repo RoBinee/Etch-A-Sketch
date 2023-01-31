@@ -2,10 +2,8 @@ const container = document.querySelector(".container");
 const inputForSize = document.querySelector("#input-size");
 const sizeDesc = document.querySelector(".size-desc");
 const colorInput = document.querySelector("#color-picker");
+const buttons = document.querySelectorAll(".btn");
 
-const startBtn = document.querySelector(".brush");
-const eraseBtn = document.querySelector(".eraser");
-const resetBtn = document.querySelector(".reset");
 
 let pixelNum = 16;
 let userColor = colorInput.value;
@@ -23,18 +21,19 @@ colorInput.addEventListener("input", (e)=>{
     userColor = e.currentTarget.value;
 })
 
-startBtn.addEventListener("click",()=>{
-    userColor = colorInput.value;
-    setDivEvent()
-})
 
-eraseBtn.addEventListener("click", ()=>{
-    userColor = "#ffffff"
-    setDivEvent();
-})
-
-resetBtn.addEventListener("click", ()=>{
-    generateDivs(pixelNum);
+buttons.forEach((btn)=>{
+    btn.addEventListener("click", ()=>{
+        if(btn.classList.contains("brush")){
+            userColor = colorInput.value;
+            setDivEvent()
+        }else if(btn.classList.contains("eraser")){
+            userColor = "#ffffff"
+            setDivEvent();
+        }else if(btn.classList.contains("reset")){
+            generateDivs(pixelNum);
+        }
+    })
 })
 
 //functions
