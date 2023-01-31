@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/7b4bb4f271.js" crossorigin="anonymous"></script>
     <!-- css -->
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <p class="size-num">16 × 16</p>
-    <input class="input-size" type="range" min="2" max="50" step="2">
+    <input id="input-size" type="range" min="2" max="50" step="2">
+    <div class="option-container">
+        <label for="color-picker">Choose your color</label>
+        <input id="color-picker" type="color" value="#ff0000">
+        <button class="brush"><i class="fa-solid fa-paintbrush"></i></button>
+        <button class="eraser"><i class="fa-solid fa-eraser"></i></button>
+        <button class="reset"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
     <div class="container"></div>
     <!-- js -->
     <script src="./app.js"></script>
