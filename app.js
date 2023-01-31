@@ -1,13 +1,16 @@
 const container = document.querySelector(".container");
 const inputForSize = document.querySelector("#input-size");
-const sizeNum = document.querySelector(".size-num");
+const sizeDesc = document.querySelector(".size-desc");
+const colorInput = document.querySelector("#color-picker");
 
-window.addEventListener("DOMContentLoaded", generateDivs(16));
+let pixelNum = 16;
+
+window.addEventListener("DOMContentLoaded", generateDivs(pixelNum));
 
 inputForSize.addEventListener("change", (e)=>{
-    const inputValue = parseInt(e.currentTarget.value);
-    sizeNum.textContent = `${inputValue} × ${inputValue}`
-    generateDivs(inputValue)
+    pixelNum = parseInt(e.currentTarget.value);
+    sizeDesc.textContent = `${pixelNum} × ${pixelNum}`
+    generateDivs(pixelNum)
 })
 
 function generateDivs(num){
@@ -22,17 +25,16 @@ function generateDivs(num){
     container.style.gridTemplateColumns = `repeat(${num}, auto)`;
     container.style.gridTemplateRows = `repeat(${num}, auto)`;
 
-    setupDivs();
+    //can draw before button is clicked
+    // setColorandEvent(colorInput.value);
 }
 
-const colorInput = document.querySelector("#color-picker");
 colorInput.addEventListener("input", (e)=>{
     const userColor = e.currentTarget.value;
-    setupDivs(userColor);
-    console.log(userColor)
+    // setColorandEvent(userColor);
 })
 
-function setupDivs(userColor){
+function setColorandEvent(userColor){
     const divs = container.querySelectorAll("div");
 
     divs.forEach((div)=>{
@@ -41,3 +43,24 @@ function setupDivs(userColor){
         })
     })
 }
+
+const startBtn = document.querySelector(".brush");
+const eraseBtn = document.querySelector(".eraser");
+const resetBtn = document.querySelector(".reset");
+
+startBtn.addEventListener("click",()=>{
+    setColorandEvent(colorInput.value)
+    //add event listener
+})
+
+eraseBtn.addEventListener("click", ()=>{
+    setColorandEvent("#ffffff");
+})
+
+resetBtn.addEventListener("click", ()=>{
+    const divs = container.querySelectorAll("div");
+
+    divs.forEach((div)=>{
+        div.style.background = "#ffffff"
+    })
+})
