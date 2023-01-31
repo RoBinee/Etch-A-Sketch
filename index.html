@@ -17,7 +17,10 @@
     <main>
         <section>
             <div class="option-container">
-                <input id="color-picker" type="color" value="#ff0000">
+                <div class="color-container">
+                    <input id="color-picker" type="color" value="#ff0000">
+                    <label for="color-picker">Choose a color</label>
+                </div>
                 <button class="btn brush"><i class="fa-solid fa-paintbrush"></i></button>
                 <button class="btn eraser"><i class="fa-solid fa-eraser"></i></button>
                 <button class="btn reset"><i class="fa-solid fa-trash-can"></i></button>
@@ -27,9 +30,6 @@
         </section>
         <div class="container"></div>
     </main>
-    <footer>
-        <p>This project is part of <a href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch">The Odin Project</a></p>
-    </footer>
     <!-- js -->
     <script src="./app.js"></script>
 </body>
