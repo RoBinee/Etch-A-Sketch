@@ -4,7 +4,6 @@ const sizeDesc = document.querySelector(".size-desc");
 const colorInput = document.querySelector("#color-picker");
 const buttons = document.querySelectorAll(".btn");
 
-
 let pixelNum = 16;
 let userColor = colorInput.value;
 
@@ -21,7 +20,6 @@ colorInput.addEventListener("input", (e)=>{
     userColor = e.currentTarget.value;
 })
 
-
 buttons.forEach((btn)=>{
     btn.addEventListener("click", ()=>{
         if(btn.classList.contains("brush")){
@@ -37,7 +35,6 @@ buttons.forEach((btn)=>{
 })
 
 //functions
-
 function generateDivs(num){
     container.innerHTML = ""
 
