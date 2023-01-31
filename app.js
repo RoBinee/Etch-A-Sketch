@@ -1,5 +1,5 @@
 const container = document.querySelector(".container");
-const inputForSize = document.querySelector(".input-size");
+const inputForSize = document.querySelector("#input-size");
 const sizeNum = document.querySelector(".size-num");
 
 window.addEventListener("DOMContentLoaded", generateDivs(16));
@@ -22,11 +22,22 @@ function generateDivs(num){
     container.style.gridTemplateColumns = `repeat(${num}, auto)`;
     container.style.gridTemplateRows = `repeat(${num}, auto)`;
 
+    setupDivs();
+}
+
+const colorInput = document.querySelector("#color-picker");
+colorInput.addEventListener("input", (e)=>{
+    const userColor = e.currentTarget.value;
+    setupDivs(userColor);
+    console.log(userColor)
+})
+
+function setupDivs(userColor){
     const divs = container.querySelectorAll("div");
 
     divs.forEach((div)=>{
         div.addEventListener("mouseover", ()=>{
-            div.style.background = "red";
+            div.style.background = userColor;
         })
     })
 }
